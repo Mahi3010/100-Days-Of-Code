@@ -1,1 +1,19 @@
+#include<iostream>
+using namespace std;
 
+int main(){
+    string name;
+    cin>>name;
+    int start=0, end=name.size()-1;
+    while (start<end){
+        if(name[start] != name[end]){
+            cout<<"Not palindrome";
+            return 0;
+        }
+        start++, end--;
+    }
+    cout<<"Palindrome";
+
+    
+    return 0;
+}
