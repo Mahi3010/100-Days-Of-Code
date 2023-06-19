@@ -1,0 +1,72 @@
+/*
+struct Node {
+  int data;
+  struct Node *next;
+  Node(int x) {
+    data = x;
+    next = NULL;
+  }
+};
+*/
+
+class Solution{
+  public:
+  int Size(Node *temp)
+    {
+        int cnt = 0 ;
+        while(temp)
+        {
+            cnt++ ;
+            temp = temp->next ;
+        }
+        return cnt ;
+    }
+    Node *reverse(Node *head)
+    {
+        Node *prev =NULL ;
+        Node *next_door = NULL ;
+        
+        while(head)
+        {
+            next_door = head->next ;
+            head->next = prev ;
+            prev = head ;
+            head = next_door ;
+        }
+        return prev ;
+    }
+    //Function to check whether the list is palindrome.
+     
+    bool isPalindrome(Node *head)
+    {
+        //Your code here
+            if(head->next ==NULL)
+           return 1 ;
+       int cnt = 0 ;
+       int size = Size(head) ;
+       Node * head2 =head ;
+       Node *prev =NULL ;
+       
+       while(cnt < (size/2))
+       {
+           prev = head2 ;
+           head2=head2->next ;
+           cnt++;
+       }
+       prev->next =NULL ;
+       
+       head2 = reverse(head2) ;
+       Node *temp1 =head ;
+       Node *temp2 =head2 ;
+       
+       while(temp1 && temp2 && temp1->data == temp2->data)
+       {
+          temp1=temp1->next ;
+          temp2=temp2->next ;
+       }
+       if(temp1 && temp2 )
+           return 0 ;
+        
+        return 1 ;
+    }
+};
