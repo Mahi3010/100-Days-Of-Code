@@ -1,0 +1,27 @@
+//User function Template for C++
+
+class Solution{
+    public:
+    int removeConsecutiveSame(vector <string > v) 
+    {
+        // Your code goes here
+        stack <string> s;
+        int i=0;
+        while(i<v.size()){
+            if(s.size()==0){
+                s.push(v[i]);
+            }
+            else{
+                if(s.top()==v[i]){
+                    s.pop();
+                }
+                else{
+                    s.push(v[i]);
+                }
+            }
+        i++;
+        }
+        return s.size();
+        
+    } 
+};
