@@ -1,0 +1,27 @@
+//User function Template for C++
+class test: public student 
+{
+    public:
+    float array[5];
+    // Add set_marks() method here.
+    void set_marks(float arr[]){
+        for(int i=0;i<5;i++){
+            array[i]=arr[i];
+        }
+    }
+    
+};
+
+class result: public test
+{
+    // Add display() method here.
+    public:
+    void display(){
+        float sum=0;
+        for(int i=0;i<5;i++){
+            sum=sum+array[i];
+         }
+         float average_marks=sum/5;
+        cout<<roll_number<<" "<<sum<<" "<<average_marks<<endl;
+    }
+};
