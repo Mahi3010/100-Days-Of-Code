@@ -1,0 +1,26 @@
+class Solution{
+public:
+    vector<int> subarraySum(vector<int>arr, int n, long long s){
+        int start = 0;
+        int end = 0;
+        long long curr_sum = 0;
+
+        while (end < n) {
+            curr_sum += arr[end];
+
+            while (curr_sum > s) {
+                curr_sum -= arr[start];
+                start++;
+            }
+
+            if (curr_sum == s) {
+                return {start + 1, end + 1};
+            }
+
+            end++;
+        }
+
+        return {-1};
+    }
+
+};
